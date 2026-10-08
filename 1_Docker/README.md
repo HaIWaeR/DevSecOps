@@ -4,11 +4,11 @@
 ```bash
 wsl --install -d Ubuntu
 ```
-[1.1]
+![](../sourse/1.1.png)
 
 ### Первый запуск Ubuntu
 
-[1.2]
+![](../sourse/1.2.png)
 
 ### Настройка Docker Desktop
 1. Settings  
@@ -16,7 +16,7 @@ wsl --install -d Ubuntu
 3. WSL Integration 
 4. Ubuntu, 
 5. Apply restart.
-[1.3]
+![](../sourse/1.3.png)
 
 ### Проверка 
 ```bash
@@ -26,7 +26,7 @@ docker pull nginx:stable-alpine
 docker version
 docker run --rm hello-world
 ```
-[1.4]
+![](../sourse/1.4.png)
 Ubuntu работает на WSL версии 2, оба образа скачаны. У Docker есть разделы Client и Server + выведено Hello from Docker!
 
 # 2 Запуск готового сайта
@@ -35,13 +35,12 @@ Ubuntu работает на WSL версии 2, оба образа скача�
 docker run -d --name lab-web -p 127.0.0.1:8080:80 nginx:stable-alpine
 docker ps
 ```
-[1.5]
-[1.6]
-
+![](../sourse/1.5.png)
+![](../sourse/1.6.png)
 ```bash
 docker logs --tail 20 lab-web
 ```
-[1.7]
+![](../sourse/1.7.png)
 
 # 3 Остановите и снова запустите сайт
 
@@ -51,7 +50,7 @@ docker stop lab-web
 docker ps
 docker ps -a
 ```
-[1.8]
+![](../sourse/1.8.png)
 
 Запуск
 ```bash
@@ -59,7 +58,7 @@ docker start lab-web
 docker ps
 docker exec lab-web cat /usr/share/nginx/html/index.html
 ```
-[1.9]
+![](../sourse/1.9.png)
 
 # Этап 4. Файлы сайта
 
@@ -68,8 +67,8 @@ mkdir -p ~/docker-lesson-01
 cd ~/docker-lesson-01
 nano index.html
 ```
-[1.10]
-[1.11]
+![](../sourse/1.10.png)
+![](../sourse/1.11.png)
 
 ```bash
 cd ~/docker-lesson-01
@@ -80,40 +79,40 @@ nano Dockerfile
 FROM nginx:stable-alpine
 COPY index.html /usr/share/nginx/html/index.html
 ```
-[1.12]
-[1.13]
+![](../sourse/1.12.png)
+![](../sourse/1.13.png)
 ```bash
 ls -l
 cat Dockerfile
 cat index.html
 ```
-[1.14]
+![](../sourse/1.14.png)
 
 # Этап 5. Сборка образа и запуск
 ```bash
 docker build -t student-site:v1 .
 docker image ls student-site
 ```
-[1.15]
+![](../sourse/1.15.png)
 
 ```bash
 docker run -d --name my-site -p 127.0.0.1:8081:80 student-site:v1
 docker ps
 ```
-[1.16]
-
+![](../sourse/1.16.png)
+![](../sourse/1.17.png)
 # Этап 6. Вторая версия
 
 ```bash
 nano index.html
 ```
-[1.18]
+![](../sourse/1.18.png)
 
 ```bash
 docker restart my-site
 ```
-[1.19]
-[1.20]
+![](../sourse/1.19.png)
+![](../sourse/1.20.png)
 
 # Этап 7. Второй контейнер
 
@@ -121,27 +120,27 @@ docker restart my-site
 docker run -d --name my-copy -p 127.0.0.1:8082:80 student-site:v2
 docker ps
 ```
-[1.21]
-[1.22]
+![](../sourse/1.21.png)
+![](../sourse/1.22.png)
 
 ```bash
 docker stop my-site
 docker ps -a
 ```
-[1.23]
-[1.24]
+![](../sourse/1.23.png)
+![](../sourse/1.24.png)
 
 ```bash
 docker stop my-site
 docker ps -a
 ```
-[1.25]
+![](../sourse/1.25.png)
 
 ```bash
 docker start my-site
 docker ps
 ```
-[1.26]
+![](../sourse/1.26.png)
 
 # Этап 8. result.txt
 
@@ -149,8 +148,8 @@ docker ps
 cd ~/docker-lesson-01
 nano result.txt
 ```
-[1.27]
-[1.28]
+![](../sourse/1.27.png)
+![](../sourse/1.28.png)
 
 # Завершение работы 
 ```bash
